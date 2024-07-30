@@ -4,12 +4,13 @@
 
 @layer base {
   :root {
-    --foreground: 60, 22%, 90%;
+    --foreground: 114, 38%, 5%;
     --background: 60, 20%, 95%;
 
     --muted: 173 30% 85%;
     --muted-foreground: 211 5% 35%;
 
+    --primary-50: 113, 36%, 95%;
     --primary-200: 107 37% 80%;
     --primary-400: 108 37% 60%;
     --primary-500: 108 37% 50%;
@@ -17,7 +18,11 @@
     --primary-950: 107 36% 5%;
 
     --card: 60, 20%, 95%;
-    --card-background: 60, 20%, 95%;
+    --card-background: 114, 38%, 5%;
+
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 211 5% 90%;
+
     --border: 211 30% 50%;
     --input: 211 30% 18%;
     --ring: 108 37% 50%;

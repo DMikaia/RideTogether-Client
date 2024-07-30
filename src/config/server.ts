@@ -1,7 +1,7 @@
-import * as dotenv from "dotenv";
+"use server";
 
-dotenv.config();
+export const server = async () => {
+  const serverUrl = process.env.SERVER_URL;
 
-const serverUrl = process.env.SERVER_URL;
-
-export { serverUrl };
+  return { serverUrl };
+};

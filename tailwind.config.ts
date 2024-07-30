@@ -7,6 +7,15 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        md: "974px",
+        lg: "1024px",
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -20,6 +29,7 @@ const config: Config = {
         },
         primary: {
           DEFAULT: "hsl(var(--primary-500))",
+          foreground: "hsl(var(--primary-50))",
           200: "hsl(var(--primary-200))",
           400: "hsl(var(--primary-400))",
           600: "hsl(var(--primary-600))",
@@ -27,16 +37,20 @@ const config: Config = {
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary-600))",
+          foreground: "hsl(var(--secondary-800))",
           200: "hsl(var(--secondary-200))",
-          800: "hsl(var(--secondary-800))",
         },
         accent: {
-          200: "hsl(var(--accent-200))",
-          950: "hsl(var(--accent-950))",
+          DEFAULT: "hsl(var(--accent-200))",
+          foreground: "hsl(var(--accent-950))",
         },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
       },
       borderRadius: {
