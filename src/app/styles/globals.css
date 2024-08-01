@@ -42,3 +42,7 @@
     text-wrap: balance;
   }
 }
+
+.chat-height {
+  height: calc(100% - 72px);
+}

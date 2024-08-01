@@ -20,8 +20,6 @@ export const login = async (session: string): Promise<boolean> => {
       }
     );
 
-    console.log("Response data:", response.data);
-
     if (response.data.cookie && response.data.expiration) {
       await setAuthCookie(response.data.cookie, response.data.expiration);
       return true;
