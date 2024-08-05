@@ -20,7 +20,10 @@ const config: Config = {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
-        background: "hsl(var(--background))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          muted: "hsl(var(--background-100))",
+        },
         foreground: "hsl(var(--foreground))",
         ring: "hsl(var(--ring))",
         muted: {
@@ -29,16 +32,17 @@ const config: Config = {
         },
         primary: {
           DEFAULT: "hsl(var(--primary-500))",
-          foreground: "hsl(var(--primary-50))",
+          foreground: "hsl(var(--primary-950))",
+          50: "hsl(var(--primary-50))",
+          100: "hsl(var(--primary-100))",
           200: "hsl(var(--primary-200))",
           400: "hsl(var(--primary-400))",
           600: "hsl(var(--primary-600))",
-          950: "hsl(var(--primary-950))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary-600))",
+          DEFAULT: "hsl(var(--secondary-200))",
           foreground: "hsl(var(--secondary-800))",
-          200: "hsl(var(--secondary-200))",
+          600: "hsl(var(--secondary-600))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent-200))",
@@ -57,6 +61,20 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },

@@ -23,9 +23,6 @@ export default function Form({ user, roomName }: Props) {
           room: roomName,
           sender: {
             id: user.id,
-            name: user.name,
-            username: user.username,
-            image: user.image,
           },
         });
         setValue("");
