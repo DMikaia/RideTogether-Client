@@ -9,38 +9,70 @@ import {
   DropdownMenuTrigger,
 } from "../dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
-import { LogOut, Settings } from "lucide-react";
+import { LayoutDashboard, LogOut, Menu, Plus, Settings } from "lucide-react";
 import { DropdownMenuShortcut } from "../dropdown-menu";
 
 interface Props {
-  user?: {
-    name: string;
-    image: string;
-    username: string;
-  };
+  user?: User;
 }
 
-import { Geo } from "next/font/google";
 import Link from "next/link";
 import { Button } from "../button";
-
-const geo = Geo({ weight: "400", subsets: ["latin"] });
+import Logo from "../logo";
+import { RoomBox } from "@/components/room/box";
+import { User } from "@/type/user";
 
 export default function Header({ user }: Props) {
   return (
-    <header className="w-full h-fit p-4 md:px-8 flex items-center justify-between bg-background-muted">
-      <h1 className={`${geo.className} text-xl`}>Ride Together</h1>
+    <header className="w-full h-[70px] p-2 md:px-8 flex items-center justify-between bg-background-muted">
+      <div className="w-fit h-fit flex gap-8 items-center">
+        <DropdownMenu>
+          <DropdownMenuTrigger className="w-fit h-fit bg-transparent hover:bg-transparent focus:outline-none">
+            <Menu
+              size={32}
+              className="p-1 grid items-center justify-center border-foreground border rounded-lg"
+            />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-fit bg-card" align="start">
+            <DropdownMenuLabel>Navigation</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Link
+                className="w-full h-full flex gap-0 items-center"
+                href={"/dashboard"}
+              >
+                <LayoutDashboard className="mr-2 h-4 w-4" />
+                <span>Dashboard</span>
+              </Link>
+            </DropdownMenuItem>
+            <RoomBox />
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Link
+                className="w-full h-full flex gap-0 items-center"
+                href={"/offer"}
+              >
+                <Plus className="mr-2 h-4 w-4" />
+                <span>New offer</span>
+              </Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <Logo width={72} height={53} />
+      </div>
+
       {user ? (
         <DropdownMenu>
           <DropdownMenuTrigger className="w-fit h-fit bg-transparent hover:bg-transparent rounded-full p-1">
             <Avatar>
               <AvatarImage
-                width={24}
-                height={24}
+                width={16}
+                height={16}
                 src={user?.image}
                 alt={user?.username}
               />
-              <AvatarFallback>
+              <AvatarFallback className="text-sm">
                 {user?.name
                   .split(" ")
                   .map((chunk) => chunk[0])
@@ -48,7 +80,7 @@ export default function Header({ user }: Props) {
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-[118px] bg-card" align="end">
+          <DropdownMenuContent className="w-fit bg-card" align="end">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>

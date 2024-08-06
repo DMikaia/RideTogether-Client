@@ -11,8 +11,8 @@ export async function middleware(request: NextRequest) {
       request.nextUrl.pathname === "/reset") &&
     session
   ) {
-    return NextResponse.redirect(new URL("/main", request.url));
-  } else if (request.nextUrl.pathname === "/main" && !session) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  } else if (request.nextUrl.pathname === "/dashboard" && !session) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
@@ -25,6 +25,6 @@ export const config = {
     "/register/:path*",
     "/forgot/:path*",
     "/reset/:path*",
-    "/main",
+    "/dashboard",
   ],
 };

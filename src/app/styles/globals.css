@@ -52,3 +52,11 @@ html {
 .chat-height {
   height: calc(100% - 72px);
 }
+
+.h-main {
+  height: calc(100% - 70px);
+}
+
+.h-offer {
+  height: calc(100% - 176px);
+}
