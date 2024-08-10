@@ -14,18 +14,12 @@ import Link from "next/link";
 import { Button } from "../button";
 import Logo from "../logo";
 import { RoomBox } from "@/components/room/box";
-import { User } from "@/type/user";
-import { Room } from "@/type/room";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { logout } from "@/services/auth/logout";
+import { HeaderProps } from "@/interfaces/header";
 
-interface Props {
-  user?: User;
-  rooms?: Room[];
-}
-
-export default function Header({ user, rooms }: Props) {
+export default function Header({ user, rooms }: HeaderProps) {
   const router = useRouter();
   const [redirect, setRedirect] = useState<boolean>(false);
 

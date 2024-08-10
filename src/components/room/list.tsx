@@ -1,13 +1,9 @@
 import Link from "next/link";
 import { Button } from "../common/button";
 import { ScrollArea, ScrollBar } from "../common/scroll-area";
-import { Room } from "@/type/room";
+import { ListProps } from "@/interfaces/room";
 
-interface Props {
-  rooms: Room[];
-}
-
-export default function RoomList({ rooms }: Props) {
+export default function RoomList({ rooms }: ListProps) {
   return (
     <>
       {rooms.length > 0 ? (

@@ -1,13 +1,9 @@
 import { format } from "date-fns";
-import { Message } from "@/type/message";
+import { MessageProps } from "@/interfaces/room";
 import { Avatar, AvatarFallback, AvatarImage } from "../common/avatar";
 import Link from "next/link";
 
-interface Props {
-  message: Message;
-}
-
-export default function Content({ message }: Props) {
+export default function Content({ message }: MessageProps) {
   const formattedDate = format(message.createdAt, "dd/MM/yyyy HH:mm");
 
   return (

@@ -9,13 +9,7 @@ interface Props {
 
 export default function Reveal({ children }: Props) {
   return (
-    <div
-      style={{
-        overflow: "hidden",
-        width: "fit-content",
-        position: "relative",
-      }}
-    >
+    <div className="hiddend w-fit relative">
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}

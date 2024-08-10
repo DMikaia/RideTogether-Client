@@ -1,13 +1,9 @@
 import { Button } from "@/components/common/button";
 import RoomList from "./list";
 import Link from "next/link";
-import { Room } from "@/type/room";
+import { ListProps } from "@/interfaces/room";
 
-interface Props {
-  rooms: Room[];
-}
-
-export default function RoomSummary({ rooms }: Props) {
+export default function RoomSummary({ rooms }: ListProps) {
   return (
     <div className="h-fit flex-col gap-2 rounded-lg p-2 hidden md:flex md:w-[256px] shadow-sm bg-card">
       <Link href={"/offer"} className="w-full h-fit">

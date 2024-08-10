@@ -1,30 +1,19 @@
-"use client";
-
-import {
-  createContext,
-  useEffect,
-  useState,
-  useContext,
-  ReactNode,
-} from "react";
-import { Socket, io } from "socket.io-client";
-
-// Define the socket connection URL
-const SOCKET_URL = "http://localhost:5000";
-
-// Create the WebSocket context
-export const WebsocketContext = createContext<Socket | null>(null);
+import { WebsocketContext } from "@/contexts/websocket";
+import { ReactNode, useEffect, useState } from "react";
+import { io, Socket } from "socket.io-client";
 
 interface WebsocketProviderProps {
   children: ReactNode;
   userId: string;
 }
 
-// Create the WebSocket provider component
 export const WebsocketProvider = ({
   children,
   userId,
 }: WebsocketProviderProps) => {
+  // Change the url according to the server url you configured
+  const SOCKET_URL =
+    process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:5000";
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
@@ -44,9 +33,4 @@ export const WebsocketProvider = ({
       {children}
     </WebsocketContext.Provider>
   );
-};
-
-// Custom hook to use WebSocket context
-export const useWebsocket = () => {
-  return useContext(WebsocketContext);
 };

@@ -1,36 +1,24 @@
 "use client";
 
-import { User } from "@/type/user";
 import { useEffect, useState } from "react";
 import Form from "./form";
-import { useWebsocket } from "@/context/websocket";
+import { useWebsocket } from "@/hooks/use-websocket";
 import { Message } from "@/type/message";
-import { Avatar, AvatarFallback, AvatarImage } from "../common/avatar";
-import Content from "./message";
 import { ScrollArea, ScrollBar } from "../common/scroll-area";
+import Content from "./message";
+import { ChatProps } from "@/interfaces/room";
 
-interface Props {
-  user: User;
-  room: string;
-}
-
-export default function Chat({ user, room }: Props) {
+export default function Chat({ user, room }: ChatProps) {
   const socket = useWebsocket();
   const [messages, addMessages] = useState<Message[]>([]);
-  const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
     if (!socket) return;
 
     const handleConnect = () => {
       console.log("Connected to WebSocket");
-      setIsConnected(true);
       socket.emit("join", { roomName: room, userId: user.id });
       socket.emit("messages", { roomName: room, userId: user.id });
-    };
-
-    const handleDisconnect = () => {
-      setIsConnected(false);
     };
 
     const handleChat = (data: Message) => {
@@ -43,13 +31,13 @@ export default function Chat({ user, room }: Props) {
     };
 
     socket.on("connect", handleConnect);
-    socket.on("disconnect", handleDisconnect);
+    socket.on("disconnect", () => {});
     socket.on("chat", handleChat);
     socket.on("messages", handleMessages);
 
     return () => {
       socket.off("connect", handleConnect);
-      socket.off("disconnect", handleDisconnect);
+      socket.off("disconnect", () => {});
       socket.off("chat", handleChat);
       socket.off("messages", handleMessages);
     };

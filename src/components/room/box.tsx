@@ -7,13 +7,9 @@ import {
 } from "@/components/common/dialog";
 import { UsersRound } from "lucide-react";
 import RoomList from "./list";
-import { Room } from "@/type/room";
+import { ListProps } from "@/interfaces/room";
 
-interface Props {
-  rooms: Room[];
-}
-
-export function RoomBox({ rooms }: Props) {
+export function RoomBox({ rooms }: ListProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>

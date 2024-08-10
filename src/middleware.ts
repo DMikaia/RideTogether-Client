@@ -5,7 +5,6 @@ export async function middleware(request: NextRequest) {
   const session = await checkCookie(request, "session");
 
   const publicPaths = ["/", "/login", "/register", "/forgot", "/reset"];
-
   const protectedPaths = ["/dashboard", "/offer", "/room", "/profile"];
 
   const currentPath = request.nextUrl.pathname;

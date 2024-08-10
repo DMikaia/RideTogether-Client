@@ -1,5 +1,5 @@
 import Chat from "@/components/room/chat";
-import { WebsocketProvider } from "@/context/websocket";
+import { WebsocketProvider } from "@/providers/websocket";
 import { getUser } from "@/services/user/get-user";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";

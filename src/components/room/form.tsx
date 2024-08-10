@@ -1,16 +1,11 @@
-import { User } from "@/type/user";
 import { Button } from "../common/button";
 import { Input } from "../common/form/input";
 import { useState } from "react";
-import { useWebsocket } from "@/context/websocket"; // Adjust the import path as needed
+import { useWebsocket } from "@/hooks/use-websocket"; // Adjust the import path as needed
 import { Send } from "lucide-react";
+import { FormProps } from "@/interfaces/room";
 
-interface Props {
-  user: User;
-  roomName: string;
-}
-
-export default function Form({ user, roomName }: Props) {
+export default function Form({ user, roomName }: FormProps) {
   const [value, setValue] = useState<string>("");
   const socket = useWebsocket();
 
