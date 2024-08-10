@@ -7,8 +7,13 @@ import {
 } from "@/components/common/dialog";
 import { UsersRound } from "lucide-react";
 import RoomList from "./list";
+import { Room } from "@/type/room";
 
-export function RoomBox() {
+interface Props {
+  rooms: Room[];
+}
+
+export function RoomBox({ rooms }: Props) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -21,7 +26,7 @@ export function RoomBox() {
         <DialogHeader>
           <DialogTitle>Mes groupes</DialogTitle>
         </DialogHeader>
-        <RoomList />
+        <RoomList rooms={rooms} />
       </DialogContent>
     </Dialog>
   );

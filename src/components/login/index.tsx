@@ -35,22 +35,22 @@ export default function LoginFom() {
   const onSubmit = async (value: z.infer<typeof loginSchema>) => {
     setLoading(true);
 
-    try {
-      const token = await signInWithEmailAndPass(value.email, value.password);
+    const token = await signInWithEmailAndPass(value.email, value.password);
 
-      if (token == null) {
-        toast({
-          variant: "destructive",
-          title: "Erreur",
-          description: "Informations d'identification non valides",
-        });
-        return;
-      }
+    if (token == null) {
+      toast({
+        variant: "destructive",
+        title: "Erreur",
+        description: "Informations d'identification non valides",
+      });
+      return;
+    }
 
-      await login(token);
+    const response = await login(token);
 
+    if (response) {
       setRedirect(true);
-    } catch (error) {
+    } else {
       toast({
         variant: "destructive",
         title: "Erreur",

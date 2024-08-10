@@ -15,7 +15,7 @@ export default async function Room({ params }: Props) {
     <main className="flex flex-col h-screen w-full">
       <section className="p-4 flex w-full justify-between bg-primary text-primary-foreground">
         <Link
-          href={"/main"}
+          href={"/dashboard"}
           className="flex gap-1 items-center justify-center"
         >
           <ArrowLeft size={16} className="stroke-primary-foreground" />

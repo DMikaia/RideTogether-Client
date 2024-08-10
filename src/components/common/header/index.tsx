@@ -9,20 +9,40 @@ import {
   DropdownMenuTrigger,
 } from "../dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
-import { LayoutDashboard, LogOut, Menu, Plus, Settings } from "lucide-react";
-import { DropdownMenuShortcut } from "../dropdown-menu";
-
-interface Props {
-  user?: User;
-}
-
+import { LayoutDashboard, LogOut, Menu, Plus, User2 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../button";
 import Logo from "../logo";
 import { RoomBox } from "@/components/room/box";
 import { User } from "@/type/user";
+import { Room } from "@/type/room";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { logout } from "@/services/auth/logout";
 
-export default function Header({ user }: Props) {
+interface Props {
+  user?: User;
+  rooms?: Room[];
+}
+
+export default function Header({ user, rooms }: Props) {
+  const router = useRouter();
+  const [redirect, setRedirect] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (redirect) {
+      router.replace("/login");
+    }
+  }, [redirect, router]);
+
+  const onLogout = async () => {
+    const response = await logout();
+
+    if (response) {
+      setRedirect(true);
+    }
+  };
+
   return (
     <header className="w-full h-[70px] p-2 md:px-8 flex items-center justify-between bg-background-muted">
       <div className="w-fit h-fit flex gap-8 items-center">
@@ -45,7 +65,7 @@ export default function Header({ user }: Props) {
                 <span>Dashboard</span>
               </Link>
             </DropdownMenuItem>
-            <RoomBox />
+            {rooms && <RoomBox rooms={rooms} />}
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <Link
@@ -84,16 +104,22 @@ export default function Header({ user }: Props) {
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+              <Link
+                href={`/profile/${user.id}`}
+                className="w-full h-full flex gap-0 items-center"
+              >
+                <User2 className="mr-2 h-4 w-4" />
+                <span>Profile</span>
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <button
+              onClick={onLogout}
+              className="w-full flex items-center rounded-sm px-2 py-1.5 text-sm hover:bg-accent focus:bg-accent"
+            >
               <LogOut className="mr-2 h-4 w-4" />
               <span>Log out</span>
-              <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-            </DropdownMenuItem>
+            </button>
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (

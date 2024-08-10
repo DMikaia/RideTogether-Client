@@ -1,15 +1,21 @@
 "use client";
 
 import { ScrollArea, ScrollBar } from "@/components/common/scroll-area";
-import Offer from "./offer";
-import { offers } from "@/store/offert";
+import Item from "@/components/offer";
 import SearchBar from "./search";
 import { useState } from "react";
+import { Offer } from "@/type/offer";
 
-export default function OfferList() {
+interface Props {
+  offers: Offer[];
+}
+
+export default function OfferList({ offers }: Props) {
   const [value, setValue] = useState<string>("");
-  const filteredOffer = offers.filter((offer) =>
-    offer.description.includes(value)
+  const filteredOffer = offers.filter(
+    (offer) =>
+      offer.departurePlace.startsWith(value) ||
+      offer.destinationPlace.startsWith(value)
   );
 
   return (
@@ -20,14 +26,28 @@ export default function OfferList() {
         <SearchBar setValue={setValue} />
       </div>
 
-      <ScrollArea className="h-full w-full">
-        <ul className="w-full h-fit flex flex-col gap-8 px-4 justify-center items-center">
-          {filteredOffer.map((offer, index) => (
-            <Offer key={index} offer={offer} />
-          ))}
-        </ul>
-        <ScrollBar orientation="vertical" />
-      </ScrollArea>
+      {filteredOffer.length > 0 ? (
+        <ScrollArea className="h-full w-full">
+          <ul className="w-full h-fit flex flex-col gap-8 px-4 justify-center items-center">
+            {filteredOffer.map((offer, index) => (
+              <Item key={index} offer={offer} review={false} />
+            ))}
+          </ul>
+          <ScrollBar orientation="vertical" />
+        </ScrollArea>
+      ) : (
+        <div className="h-[100px] w-full flex justify-center items-center">
+          {value.length > 0 ? (
+            <p className="text-xs text-muted-foreground">
+              Aucune offre trouvée
+            </p>
+          ) : (
+            <p className="text-xs text-muted-foreground">
+              Aucune offre à afficher
+            </p>
+          )}
+        </div>
+      )}
     </section>
   );
 }

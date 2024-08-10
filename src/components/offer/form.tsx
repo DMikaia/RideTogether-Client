@@ -152,7 +152,7 @@ export default function OfferForm() {
                 </FormItem>
               )}
             />
-            <div className="w-1/2 h-fit">
+            <div className="w-full md:w-1/2 h-fit">
               <FormLabel>Image du lieu</FormLabel>
               <Input
                 onChange={(e) => setImage(e.target.files)}

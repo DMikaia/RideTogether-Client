@@ -45,20 +45,18 @@ export default function ProfileFom() {
         password: credentials.password,
       };
 
-      try {
-        const response = await register(data);
+      const response = await register(data);
 
-        if (response) {
-          toast({
-            title: "Création de compte",
-            description: "Votre compte a été créé avec succès",
-          });
+      if (response) {
+        toast({
+          title: "Création de compte",
+          description: "Votre compte a été créé avec succès",
+        });
 
-          await wait(3000);
+        await wait(3000);
 
-          setRedirect(true);
-        }
-      } catch (error) {
+        setRedirect(true);
+      } else {
         toast({
           variant: "destructive",
           title: "Erreur lors de l'inscription",

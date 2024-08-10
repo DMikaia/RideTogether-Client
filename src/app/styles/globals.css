@@ -60,3 +60,11 @@ html {
 .h-offer {
   height: calc(100% - 176px);
 }
+
+.h-list {
+  height: calc(100% - 168px);
+}
+
+.h-profile {
+  height: calc(100% - 33px);
+}

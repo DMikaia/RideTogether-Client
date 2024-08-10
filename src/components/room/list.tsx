@@ -1,28 +1,34 @@
 import Link from "next/link";
 import { Button } from "../common/button";
 import { ScrollArea, ScrollBar } from "../common/scroll-area";
+import { Room } from "@/type/room";
 
-export default function RoomList() {
-  const rooms = [
-    "Antsirabe - Faratsiho",
-    "Ambositra - Itaosy",
-    "Toliara - Mahajanga",
-    "Ivato - Antsiranana",
-  ];
+interface Props {
+  rooms: Room[];
+}
 
+export default function RoomList({ rooms }: Props) {
   return (
-    <ScrollArea className="h-[88px] w-full py-1">
-      <ul className="w-full h-fit  flex flex-col gap-2">
-        {rooms.map((room, index) => (
-          <Link key={index} href={`room/${room}`}>
-            <Button variant={"accent"} size={"sm"} className="w-full">
-              {room}
-            </Button>
-          </Link>
-        ))}
-      </ul>
+    <>
+      {rooms.length > 0 ? (
+        <ScrollArea className="h-[88px] w-full py-1">
+          <ul className="w-full h-fit  flex flex-col gap-2">
+            {rooms.map((room, index) => (
+              <Link key={index} href={`/room/${room.name}`}>
+                <Button variant={"accent"} size={"sm"} className="w-full">
+                  {room.name}
+                </Button>
+              </Link>
+            ))}
+          </ul>
 
-      <ScrollBar orientation="vertical" />
-    </ScrollArea>
+          <ScrollBar orientation="vertical" />
+        </ScrollArea>
+      ) : (
+        <div className="w-full h-[48px] flex justify-center items-center">
+          <p className="text-xs text-muted-foreground">La liste est vide</p>
+        </div>
+      )}
+    </>
   );
 }
