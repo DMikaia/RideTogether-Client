@@ -18,9 +18,9 @@ $ npm install
 Here are the current features right now:
 
 - Basic authentication with Firebase & PostgreSQL
-- User (find, update)
-- Offer (creation, find, update)
-- Room (find)
+- User (get, update)
+- Offer (creation, get, update)
+- Room (get)
 - Review (crud)
 - Live chat using websocket
 
