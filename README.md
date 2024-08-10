@@ -4,7 +4,7 @@
 
 ## Description
 
-This is the client part of my team's school project called "ride together" (carpooling web application). The purpose of this application is to help people find carpooling offers easily.
+This is the client part of my school project called "Ride Together" (carpooling web application). The purpose of this application is to help people find carpooling offers easily.
 
 ## Installation
 
