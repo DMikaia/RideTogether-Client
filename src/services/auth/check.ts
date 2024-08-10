@@ -3,7 +3,7 @@ import { ApiResponse } from "@/type/api";
 import axios from "axios";
 
 export const checkEmail = async (email: string): Promise<boolean> => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/email`;
   const json = JSON.stringify({ email: email });
 

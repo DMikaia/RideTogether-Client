@@ -2,6 +2,10 @@ import { Message } from "@/type/message";
 import { Room } from "@/type/room";
 import { User } from "@/type/user";
 
+export interface RoomProps {
+  params: { name: string };
+}
+
 export interface ListProps {
   rooms: Room[];
 }

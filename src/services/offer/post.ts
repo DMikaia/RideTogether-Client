@@ -5,7 +5,7 @@ import { OfferPost } from "@/type/offer";
 import axios from "axios";
 
 export const postOffer = async (offer: OfferPost) => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/offer`;
   const json = JSON.stringify(offer);
   const token = await getSessionCookie();

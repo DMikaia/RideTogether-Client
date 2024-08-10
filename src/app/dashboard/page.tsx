@@ -1,6 +1,6 @@
 import { getUser } from "@/services/user/get-user";
 import Header from "@/components/common/header";
-import OfferList from "@/components/main/offer/list";
+import OfferList from "@/components/dashboard/offer/list";
 import RoomList from "@/components/room/summary";
 import { wait } from "@/libs/wait";
 import { getOffers } from "@/services/offer/get";

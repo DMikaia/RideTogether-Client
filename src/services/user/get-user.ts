@@ -5,7 +5,7 @@ import { User } from "@/type/user";
 import axios from "axios";
 
 export const getUser = async () => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/me`;
   const token = await getSessionCookie();
 

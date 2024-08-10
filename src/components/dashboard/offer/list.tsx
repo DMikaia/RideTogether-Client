@@ -4,13 +4,9 @@ import { ScrollArea, ScrollBar } from "@/components/common/scroll-area";
 import Item from "@/components/offer";
 import SearchBar from "./search";
 import { useState } from "react";
-import { Offer } from "@/type/offer";
+import { OfferProps } from "@/interfaces/dashboard";
 
-interface Props {
-  offers: Offer[];
-}
-
-export default function OfferList({ offers }: Props) {
+export default function OfferList({ offers }: OfferProps) {
   const [value, setValue] = useState<string>("");
   const filteredOffer = offers.filter(
     (offer) =>

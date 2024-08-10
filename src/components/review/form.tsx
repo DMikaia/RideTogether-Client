@@ -11,22 +11,14 @@ import {
 } from "@/components/common/dialog";
 import { Label } from "@/components/common/form/label";
 import { Button } from "@/components/common/button";
-
 import { Textarea } from "@/components/common/textarea";
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { postReview } from "@/services/review/post";
 import { useRouter } from "next/navigation";
 import { updateReview } from "@/services/review/update";
 import { useToast } from "../common/toast/use-toast";
-
-interface Props {
-  title: string;
-  ownerId?: string;
-  reviewId?: string;
-  className: string;
-  children?: ReactNode;
-}
+import { FormProps } from "@/interfaces/review";
 
 export default function ReviewForm({
   title,
@@ -34,7 +26,7 @@ export default function ReviewForm({
   reviewId,
   className,
   children,
-}: Props) {
+}: FormProps) {
   const router = useRouter();
   const { toast } = useToast();
   const [rating, setRating] = useState<number>(1);

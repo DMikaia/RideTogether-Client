@@ -3,14 +3,9 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/common/accordion";
+import { QAProps } from "@/interfaces/landing";
 
-interface Props {
-  question: string;
-  answer: string;
-  index: number;
-}
-
-export default function Item({ question, answer, index }: Props) {
+export default function Item({ question, answer, index }: QAProps) {
   return (
     <AccordionItem
       value={`item-${index}`}

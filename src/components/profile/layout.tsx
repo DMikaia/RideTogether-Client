@@ -3,25 +3,16 @@
 import About from "./about";
 import OfferList from "./offer";
 import { ScrollArea } from "../common/scroll-area";
-import { Offer } from "@/type/offer";
-import { User } from "@/type/user";
 import { useState } from "react";
 import Reviews from "./reviews";
-import { Review } from "@/type/review";
-
-interface Props {
-  profile: User;
-  offers: Offer[];
-  reviews: Review[];
-  userId: string;
-}
+import { LayoutProps } from "@/interfaces/profile";
 
 export default function ProfileLayout({
   userId,
   profile,
   offers,
   reviews,
-}: Props) {
+}: LayoutProps) {
   const [section, setSection] = useState<string>("offer");
 
   return (

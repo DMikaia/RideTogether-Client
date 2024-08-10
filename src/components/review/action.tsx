@@ -21,12 +21,9 @@ import { deleteReview } from "@/services/review/delete";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToast } from "../common/toast/use-toast";
+import { ActionProps } from "@/interfaces/review";
 
-interface Props {
-  id: string;
-}
-
-export default function Action({ id }: Props) {
+export default function Action({ id }: ActionProps) {
   const router = useRouter();
   const { toast } = useToast();
   const [refresh, setRefresh] = useState<boolean>(false);

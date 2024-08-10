@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Tableau de bord",
+  title: "Mot de passe oublié",
   description: "Trouver tous les covoiturages près de chez vous",
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;

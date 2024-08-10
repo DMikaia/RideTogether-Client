@@ -5,7 +5,7 @@ import { Review } from "@/type/review";
 import axios from "axios";
 
 export const getReviews = async (userId: string) => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/review/${userId}`;
   const token = await getSessionCookie();
 

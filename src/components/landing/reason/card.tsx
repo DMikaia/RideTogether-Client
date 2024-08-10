@@ -1,10 +1,6 @@
-import { ReasonElt } from "@/type/reason";
+import { CardProps } from "@/interfaces/landing";
 
-interface Props {
-  reason: ReasonElt;
-}
-
-export default function Card({ reason }: Props) {
+export default function Card({ reason }: CardProps) {
   return (
     <section className="flex flex-col gap-4 rounded-xl shadow-lg bg-card w-full justify-center items-center py-4 px-4">
       <reason.icon className="w-16 h-16 stroke-secondary-600" />

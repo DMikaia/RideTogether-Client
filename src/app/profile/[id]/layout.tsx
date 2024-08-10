@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Tableau de bord",
+  title: "Profile",
   description: "Trouver tous les covoiturages près de chez vous",
 };
 

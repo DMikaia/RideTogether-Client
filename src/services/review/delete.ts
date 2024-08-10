@@ -4,7 +4,7 @@ import { ApiResponse } from "@/type/api";
 import axios from "axios";
 
 export const deleteReview = async (reviewId: string) => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/review/${reviewId}`;
   const token = await getSessionCookie();
 

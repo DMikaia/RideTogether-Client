@@ -4,7 +4,7 @@ import { ApiResponse } from "@/type/api";
 import axios from "axios";
 
 export const postPicture = async (picture: string) => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/profile`;
   const json = JSON.stringify({ image: picture });
   const token = await getSessionCookie();

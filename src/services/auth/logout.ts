@@ -4,7 +4,7 @@ import { ApiResponse } from "@/type/api";
 import axios from "axios";
 
 export const logout = async (): Promise<boolean> => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/logout`;
   const token = await getSessionCookie();
 

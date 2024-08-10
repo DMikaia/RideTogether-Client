@@ -5,7 +5,7 @@ import { ReviewPost } from "@/type/review";
 import axios from "axios";
 
 export const postReview = async (review: ReviewPost) => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/review`;
   const json = JSON.stringify(review);
   const token = await getSessionCookie();

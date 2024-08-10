@@ -1,13 +1,11 @@
 "use client";
 
-import { User } from "@/type/user";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/components/common/avatar";
 import { FaStar } from "react-icons/fa";
-import { Review } from "@/type/review";
 import { Camera } from "lucide-react";
 import { useEffect, useState } from "react";
 import { uploadFile } from "@/services/firebase/upload";
@@ -15,14 +13,9 @@ import { postPicture } from "@/services/user/post-picture";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/common/toast/use-toast";
 import { Input } from "@/components/common/form/input";
+import { AboutProps } from "@/interfaces/profile";
 
-interface Props {
-  user: User;
-  connectedId: string;
-  reviews: Review[];
-}
-
-export default function About({ user, connectedId, reviews }: Props) {
+export default function About({ user, connectedId, reviews }: AboutProps) {
   const mean =
     reviews.length > 0
       ? reviews.reduce((sum, review) => sum + review.stars, 0) / reviews.length

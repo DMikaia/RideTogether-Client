@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Ride Together",
     template: `%s - Ride Together`,
   },
-  description: "The carpooling website you search for",
+  description: "The carpooling website you're looking for",
 };
 
 export default function RootLayout({

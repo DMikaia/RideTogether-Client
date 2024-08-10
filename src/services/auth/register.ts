@@ -8,7 +8,7 @@ export const register = async (data: {
   email: string;
   password: string;
 }) => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/register`;
   const json = JSON.stringify(data);
 

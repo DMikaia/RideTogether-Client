@@ -5,7 +5,7 @@ import { Room } from "@/type/room";
 import axios from "axios";
 
 export const getRooms = async () => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/room`;
   const token = await getSessionCookie();
 

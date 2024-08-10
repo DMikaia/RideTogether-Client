@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
+  title: "Création d'une offre",
   description: "Trouver tous les covoiturages près de chez vous",
 };
 

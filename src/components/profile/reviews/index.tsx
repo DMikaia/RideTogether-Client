@@ -1,12 +1,7 @@
 import Item from "@/components/review/item";
-import { Review } from "@/type/review";
+import { ReviewProps } from "@/interfaces/profile";
 
-interface Props {
-  reviews: Review[];
-  userId: string;
-}
-
-export default function Reviews({ reviews, userId }: Props) {
+export default function Reviews({ reviews, userId }: ReviewProps) {
   return (
     <div className="w-full h-fit">
       {reviews.length > 0 ? (

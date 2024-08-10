@@ -4,18 +4,13 @@ import {
   AvatarImage,
 } from "@/components/common/avatar";
 import Action from "@/components/review/action";
-import { Review } from "@/type/review";
+import { ItemProps } from "@/interfaces/review";
 import { format } from "date-fns";
 import Link from "next/link";
 
 import { FaStar } from "react-icons/fa";
 
-interface Props {
-  review: Review;
-  userId: string;
-}
-
-export default function Item({ review, userId }: Props) {
+export default function Item({ review, userId }: ItemProps) {
   return (
     <section className="w-full h-fit flex flex-col gap-4">
       <div className="w-full h-fit flex gap-8 items-center">

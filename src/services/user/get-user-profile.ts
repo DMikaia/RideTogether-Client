@@ -5,7 +5,7 @@ import { User } from "@/type/user";
 import axios from "axios";
 
 export const getUserProfile = async (id: string) => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/user/${id}`;
   const token = await getSessionCookie();
 

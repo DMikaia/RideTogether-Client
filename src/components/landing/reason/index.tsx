@@ -3,7 +3,7 @@
 import Card from "./card";
 import { reasons } from "@/helpers/reasons";
 import { useEffect } from "react";
-import { delay, motion, useAnimation } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 export default function Reason() {

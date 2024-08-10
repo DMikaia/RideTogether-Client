@@ -1,12 +1,7 @@
 import Item from "@/components/offer";
-import { Offer } from "@/type/offer";
+import { OfferProps } from "@/interfaces/profile";
 
-interface Props {
-  offers: Offer[];
-  userId: string;
-}
-
-export default function OfferList({ offers, userId }: Props) {
+export default function OfferList({ offers, userId }: OfferProps) {
   return (
     <div className="w-full h-fit">
       {offers.length > 0 ? (

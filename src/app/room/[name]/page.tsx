@@ -1,15 +1,14 @@
 import Chat from "@/components/room/chat";
+import { RoomProps } from "@/interfaces/room";
+import { wait } from "@/libs/wait";
 import { WebsocketProvider } from "@/providers/websocket";
 import { getUser } from "@/services/user/get-user";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-interface Props {
-  params: { name: string };
-}
-
-export default async function Room({ params }: Props) {
+export default async function Room({ params }: RoomProps) {
   const user = await getUser();
+  await wait(2000);
 
   return (
     <main className="flex flex-col h-screen w-full">

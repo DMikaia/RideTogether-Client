@@ -1,10 +1,7 @@
+import { SearchProps } from "@/interfaces/dashboard";
 import { Search } from "lucide-react";
 
-interface Props {
-  setValue: (value: string) => void;
-}
-
-export default function SearchBar({ setValue }: Props) {
+export default function SearchBar({ setValue }: SearchProps) {
   return (
     <form className="w-fit h-fit flex items-center border-b border-foreground pb-2 gap-4">
       <input

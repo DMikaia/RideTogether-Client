@@ -1,23 +1,21 @@
-import { WebsocketContext } from "@/contexts/websocket";
-import { ReactNode, useEffect, useState } from "react";
-import { io, Socket } from "socket.io-client";
+"use client";
 
-interface WebsocketProviderProps {
-  children: ReactNode;
-  userId: string;
-}
+import { server } from "@/config/server";
+import { WebsocketContext } from "@/contexts/websocket";
+import { WebsocketProviderProps } from "@/interfaces/websocket";
+import { useEffect, useState } from "react";
+import { io, Socket } from "socket.io-client";
 
 export const WebsocketProvider = ({
   children,
   userId,
 }: WebsocketProviderProps) => {
   // Change the url according to the server url you configured
-  const SOCKET_URL =
-    process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:5000";
+  const config = server();
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = io(SOCKET_URL, {
+    const newSocket = io(config.serverUrl, {
       query: { userId },
     });
 

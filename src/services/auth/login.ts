@@ -5,7 +5,7 @@ import { Login } from "@/type/login";
 import axios from "axios";
 
 export const login = async (session: string): Promise<boolean> => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/login`;
 
   try {

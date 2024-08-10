@@ -1,10 +1,12 @@
 import Header from "@/components/common/header";
 import { ScrollArea, ScrollBar } from "@/components/common/scroll-area";
 import OfferForm from "@/components/offer/form";
+import { wait } from "@/libs/wait";
 import { getUser } from "@/services/user/get-user";
 
 export default async function Offer() {
   const user = await getUser();
+  await wait(2000);
 
   return (
     <main className="h-screen w-full flex flex-col">

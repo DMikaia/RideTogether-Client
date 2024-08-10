@@ -4,7 +4,7 @@ import { ApiResponse } from "@/type/api";
 import axios from "axios";
 
 export const join = async (offerId: string) => {
-  const config = await server();
+  const config = server();
   const url = `${config.serverUrl}/offer/${offerId}`;
   const token = await getSessionCookie();
 
