@@ -1,17 +1,16 @@
-<p align="left">
-  <img src="public/logo.png" height="128" width="128" alt="Ride Together Logo" />
-</p>
+# Ride Together
 
-## Description
+![preview](public/logo.png)
 
-This is the client part of my team's school project called "ride together" (carpooling web application). The purpose of this application is to help people find carpooling offers easily.
+This is the client part of my team's school project called **Ride Together** (carpooling web application). The purpose of this application is to help people find carpooling offer easily.
 
-## Installation
+## Content
 
-```bash
-# command
-$ npm install
-```
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Environments](#environments)
+- [Running the app](#running-the-app)
 
 ## Features
 
@@ -24,26 +23,25 @@ Here are the current features right now:
 - Review (crud)
 - Live chat using websocket
 
-## Running the application
+## Prerequisites
 
-First, run the development server:
+To be able to run the app you'll need to install:
+
+- [nodejs](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+
+## Installation
 
 ```bash
 # command
-$ npm run dev
+$ npm install
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Environments
 
 ```bash
 # Server url
-NEXT_SERVER_URL=
+NEXT_PUBLIC_SERVER_URL=
 
 # Firebase
 NEXT_PUBLIC_API_KEY=
@@ -54,3 +52,21 @@ NEXT_PUBLIC_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_APP_ID=
 NEXT_PUBLIC_MEASUREMENT_ID=
 ```
+
+## Running the app
+
+> [!IMPORTANT]
+> You'll also need to configure the firebase project and add authentication (email and password) and storage, otherwise authentication and image storage won't work properly on either the server or client side. If you are not yet familiar with firebase, you may wish to consult the [documentation](https://firebase.google.com/docs)
+
+```bash
+# dev
+$ npm run dev
+
+# prod
+$ npm run start
+
+# build
+$ npm run build
+```
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
