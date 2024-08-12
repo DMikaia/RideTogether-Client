@@ -29,6 +29,7 @@ To be able to run the app you'll need to install:
 
 - [nodejs](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
+- [firebase project](https://firebase.google.com)
 
 ## Installation
 
