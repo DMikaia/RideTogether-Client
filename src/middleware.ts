@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { checkCookie } from "./libs/cookie";
+import { checkCookie, clearAllCookie } from "./libs/cookie";
 
 export async function middleware(request: NextRequest) {
   const session = await checkCookie(request, "session");
@@ -15,6 +15,9 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }
   } else {
+    // We clear the session cookie when it is expired
+    await clearAllCookie();
+
     // If the user is not logged in and tries to access a protected page, redirect to login.
     if (protectedPaths.some((path) => currentPath.startsWith(path))) {
       return NextResponse.redirect(new URL("/login", request.url));

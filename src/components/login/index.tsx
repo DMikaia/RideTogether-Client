@@ -37,7 +37,8 @@ export default function LoginFom() {
 
     const token = await signInWithEmailAndPass(value.email, value.password);
 
-    if (token == null) {
+    if (!token) {
+      setLoading(false);
       toast({
         variant: "destructive",
         title: "Erreur",
@@ -51,6 +52,7 @@ export default function LoginFom() {
     if (response) {
       setRedirect(true);
     } else {
+      setLoading(false);
       toast({
         variant: "destructive",
         title: "Erreur",
