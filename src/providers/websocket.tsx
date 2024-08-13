@@ -10,7 +10,6 @@ export const WebsocketProvider = ({
   children,
   userId,
 }: WebsocketProviderProps) => {
-  // Change the url according to the server url you configured
   const config = server();
   const [socket, setSocket] = useState<Socket | null>(null);
 
@@ -24,7 +23,7 @@ export const WebsocketProvider = ({
     return () => {
       newSocket.close();
     };
-  }, [userId]);
+  }, [userId, config.serverUrl]);
 
   return (
     <WebsocketContext.Provider value={socket}>

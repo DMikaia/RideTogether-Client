@@ -5,7 +5,7 @@ import { NextRequest } from "next/server";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 export const clearAllCookie = async () => {
-  setCookie("session", "", new Date(0));
+  await setCookie("session", "", new Date(0));
 };
 
 export const getSessionCookie = async () => {

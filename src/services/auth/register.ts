@@ -23,7 +23,7 @@ export const register = async (data: {
       }
     );
 
-    if (response.status === 200) {
+    if (response.status === 201) {
       return true;
     }
 
